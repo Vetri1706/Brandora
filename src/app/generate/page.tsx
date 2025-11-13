@@ -19,12 +19,16 @@ export default function GeneratePage() {
     toast.loading('Generating your logo...', { id: 'generating' });
 
     try {
+      console.log('🚀 Starting logo generation for:', profile);
+      
       const response = await brandingApi.generateLogo({
         company_name: profile.name,
         industry: profile.industry,
-        color_scheme: 'professional', // Default color scheme
-        logo_category: 'combination', // Default to combination style
+        color_scheme: 'blue', // Match Railway backend color schemes
+        style: 'modern', // Use 'style' instead of 'logo_category'
       });
+
+      console.log('✅ Railway backend response:', response.data);
 
       toast.dismiss('generating');
       toast.success('Logo generated successfully! 🎉');
@@ -79,8 +83,12 @@ export default function GeneratePage() {
         }
       };
       
+      console.log('💾 Saving branding data to localStorage:', brandingData);
+      
       // Store result in localStorage and navigate to results
       localStorage.setItem('latest_branding', JSON.stringify(brandingData));
+      
+      console.log('🔄 Navigating to results page...');
       router.push('/results');
     } catch (error: any) {
       toast.dismiss('generating');

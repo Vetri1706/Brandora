@@ -78,12 +78,23 @@ export default function ResultsPage() {
   }, [editedValues?.color_palette]);
 
   useEffect(() => {
+    console.log('🔍 Results page: Checking localStorage for branding data...');
     const storedBranding = localStorage.getItem('latest_branding');
+    console.log('📦 Raw localStorage data:', storedBranding);
+    
     if (storedBranding) {
-      const data = JSON.parse(storedBranding);
-      setBranding(data);
-      setEditedValues(data);
+      try {
+        const data = JSON.parse(storedBranding);
+        console.log('✅ Parsed branding data:', data);
+        setBranding(data);
+        setEditedValues(data);
+      } catch (error) {
+        console.error('❌ Error parsing branding data:', error);
+        toast.error('Error loading branding data');
+        router.push('/generate');
+      }
     } else {
+      console.warn('⚠️ No branding data found in localStorage');
       toast.error('No branding data found');
       router.push('/generate');
     }

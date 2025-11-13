@@ -5,10 +5,12 @@
 Brandora creates stunning, professional logos across 6 categories with intelligent industry-specific design patterns.
 
 ## 🚀 Live Demo
+
 - **Frontend**: https://brandora.vercel.app
 - **Backend API**: https://brand-identity-generator-production.up.railway.app
 
 ## ✨ Features
+
 - **6 Logo Categories**: Professional design generation
 - **Real-time Preview**: Instant logo visualization
 - **Industry Intelligence**: Smart category selection
@@ -16,6 +18,7 @@ Brandora creates stunning, professional logos across 6 categories with intellige
 - **Responsive Design**: Works on all devices
 
 ## 🛠️ Tech Stack
+
 - **React 18** with Next.js 14
 - **TypeScript** for type safety
 - **Tailwind CSS** for styling
@@ -23,20 +26,24 @@ Brandora creates stunning, professional logos across 6 categories with intellige
 - **Zustand** for state management
 
 ## 🔧 Development
+
 ```bash
 npm install
 npm run dev
 ```
 
 ## 📱 Deploy to Vercel
+
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/[username]/frontend-deploy)
 
 ## 🎯 Environment Variables
+
 ```bash
 NEXT_PUBLIC_API_URL=https://brand-identity-generator-production.up.railway.app
 ```
 
 ## 🎨 Logo Generation Flow
+
 1. **Company Input**: Enter company name and industry
 2. **AI Processing**: Backend selects optimal logo category
 3. **Professional Generation**: High-quality 1000x1000px logos

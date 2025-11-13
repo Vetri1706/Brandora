@@ -45,7 +45,7 @@ export const logoApi = {
     company_name: string;
     industry?: string;
     color_scheme?: string;
-    logo_category?: string;
+    style?: string;
   }) => api.post('/generate-logo', data),
   
   // Get API info - ✅ MATCHES your Railway backend
