@@ -362,7 +362,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="py-8 px-4 text-center text-slate-400 border-t border-slate-800">
-        <p>© 2025 Brand Identity Generator. Powered by AI. Built with ❤️</p>
+        <p>© 2025 Brandora. Powered by AI. Built with ❤️</p>
       </footer>
     </div>
   );

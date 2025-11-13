@@ -30,8 +30,8 @@ export default function Header() {
               <Sparkles className="text-white" size={24} />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-white">Brand Identity</h1>
-              <p className="text-xs text-blue-300">AI Logo Maker</p>
+              <h1 className="text-xl font-bold text-white">Brandora</h1>
+              <p className="text-xs text-blue-300">AI Logo Generator</p>
             </div>
           </motion.div>
 
