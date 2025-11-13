@@ -86,6 +86,11 @@ export default function ResultsPage() {
       try {
         const data = JSON.parse(storedBranding);
         console.log('✅ Parsed branding data:', data);
+        console.log('📊 Data structure check:');
+        console.log('- logos:', data.logos);
+        console.log('- taglines:', data.taglines);
+        console.log('- color_palette:', data.color_palette);
+        console.log('- brand_guidelines:', data.brand_guidelines);
         setBranding(data);
         setEditedValues(data);
       } catch (error) {
@@ -155,8 +160,8 @@ export default function ResultsPage() {
       const { data } = await brandingApi.generateLogo({
         company_name: refinedProfile.name,
         industry: refinedProfile.industry,
-        color_scheme: 'professional',
-        logo_category: 'combination',
+        color_scheme: 'blue',
+        style: 'modern',
       });
       
       // Merge new results with existing ones based on focus

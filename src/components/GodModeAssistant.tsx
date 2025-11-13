@@ -34,8 +34,8 @@ export default function GodModeAssistant({ isOpen, onClose, companyProfile, onRe
       const { data } = await brandingApi.generateLogo({
         company_name: companyProfile.name,
         industry: industryOverride || companyProfile.industry,
-        color_scheme: colors || 'professional',
-        logo_category: style || 'combination',
+        color_scheme: colors || 'blue',
+        style: style || 'modern',
       });
       onResult(data);
       onClose();
