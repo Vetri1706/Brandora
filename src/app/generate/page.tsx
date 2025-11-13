@@ -29,8 +29,58 @@ export default function GeneratePage() {
       toast.dismiss('generating');
       toast.success('Logo generated successfully! 🎉');
       
+      // Transform Railway backend response into frontend format
+      const brandingData = {
+        id: Date.now().toString(),
+        company_profile: profile,
+        logos: [
+          {
+            id: '1',
+            description: `Professional ${response.data.style} logo for ${response.data.company_name}`,
+            color_scheme: [response.data.color_scheme, '#1e40af', '#3b82f6'],
+            style: response.data.style || 'combination',
+            image_url: response.data.logo_path,
+            prompt_used: `${response.data.company_name} ${response.data.industry} logo`
+          }
+        ],
+        taglines: [
+          {
+            id: '1',
+            text: `Innovating the Future of ${profile.industry}`,
+            tone: 'professional',
+            explanation: 'A forward-looking tagline emphasizing innovation and industry leadership'
+          },
+          {
+            id: '2', 
+            text: `Your Trusted ${profile.industry} Partner`,
+            tone: 'trustworthy',
+            explanation: 'Building trust and reliability in your industry'
+          }
+        ],
+        color_palette: {
+          primary: '#1e40af',
+          secondary: '#3b82f6', 
+          accent: '#60a5fa',
+          neutral: '#6b7280',
+          psychology: {
+            primary: 'Trust and professionalism',
+            secondary: 'Innovation and growth',
+            accent: 'Accessibility and clarity'
+          },
+          usage_guidelines: 'Use primary color for main branding elements, secondary for interactive elements, and accent for highlights.'
+        },
+        brand_guidelines: {
+          mission: `To deliver exceptional ${profile.industry} solutions that drive success.`,
+          vision: `Leading innovation in ${profile.industry} with integrity and excellence.`,
+          values: profile.brand_values || ['Innovation', 'Quality', 'Trust'],
+          tone_of_voice: profile.tone || 'Professional and approachable',
+          logo_usage: 'Maintain clear space around logo equal to the height of the company name. Use on light backgrounds for optimal visibility.',
+          typography: 'Use modern, clean fonts that complement the logo design. Recommended: Inter for digital, and a serif font for formal documents.'
+        }
+      };
+      
       // Store result in localStorage and navigate to results
-      localStorage.setItem('latest_branding', JSON.stringify(response.data));
+      localStorage.setItem('latest_branding', JSON.stringify(brandingData));
       router.push('/results');
     } catch (error: any) {
       toast.dismiss('generating');
