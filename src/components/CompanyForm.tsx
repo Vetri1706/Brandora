@@ -43,29 +43,27 @@ export default function CompanyForm({ onSubmit, isLoading }: CompanyFormProps) {
   ];
 
   useEffect(() => {
-    // Fetch company types on mount
+    // Use mock company types since this endpoint doesn't exist in our Railway backend
     setLoadingTypes(true);
-    brandingApi.getCompanyTypes()
-      .then((response) => {
-        console.log('Company types response:', response.data);
-        const types = response.data.company_types || [];
-        setCompanyTypes(types);
-        // Set first type as default if available
-        if (types.length > 0 && !formData.company_type) {
-          setFormData(prev => ({ ...prev, company_type: types[0].id }));
-        }
-      })
-      .catch((error) => {
-        console.error('Failed to fetch company types:', error);
-        // Set default types as fallback
-        const defaultTypes = [
-          { id: 'saas', name: 'SaaS', description: 'Software as a Service' },
-          { id: 'fintech', name: 'FinTech', description: 'Financial Technology' },
-          { id: 'ecommerce', name: 'E-Commerce', description: 'E-Commerce Platform' },
-        ];
-        setCompanyTypes(defaultTypes);
-      })
-      .finally(() => setLoadingTypes(false));
+    
+    // Mock company types data
+    const mockTypes = [
+      { id: 'tech', name: 'Technology', description: 'Software, apps, platforms' },
+      { id: 'finance', name: 'Finance', description: 'Banking, investments, fintech' },
+      { id: 'health', name: 'Healthcare', description: 'Medical, wellness, biotech' },
+      { id: 'retail', name: 'Retail', description: 'E-commerce, shopping, consumer goods' },
+      { id: 'consulting', name: 'Consulting', description: 'Professional services, advisory' },
+      { id: 'manufacturing', name: 'Manufacturing', description: 'Industrial, production' },
+      { id: 'education', name: 'Education', description: 'Learning, training, academic' },
+      { id: 'entertainment', name: 'Entertainment', description: 'Media, gaming, content' }
+    ];
+    
+    setCompanyTypes(mockTypes);
+    // Set first type as default if available
+    if (mockTypes.length > 0 && !formData.company_type) {
+      setFormData(prev => ({ ...prev, company_type: mockTypes[0].id }));
+    }
+    setLoadingTypes(false);
   }, []);
 
   // Close dropdowns when clicking outside
