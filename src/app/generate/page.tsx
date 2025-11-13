@@ -43,7 +43,7 @@ export default function GeneratePage() {
             description: `Professional ${response.data.style} logo for ${response.data.company_name}`,
             color_scheme: [response.data.color_scheme, '#1e40af', '#3b82f6'],
             style: response.data.style || 'combination',
-            image_url: response.data.logo_path,
+            image_url: `${process.env.NEXT_PUBLIC_API_URL}${response.data.logo_url}`,
             prompt_used: `${response.data.company_name} ${response.data.industry} logo`
           }
         ],
