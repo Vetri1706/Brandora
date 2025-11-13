@@ -31,12 +31,11 @@ export default function GodModeAssistant({ isOpen, onClose, companyProfile, onRe
         color_overrides: colors ? colors.split(',').map(c => c.trim()).filter(Boolean) : undefined,
         style_preference: style || undefined,
       };
-      const { data } = await brandingApi.generateBranding({
-        company_id: Date.now().toString(),
-        company_profile: companyProfile,
-        focus: 'logo',
-        num_variations: 3,
-        god_mode,
+      const { data } = await brandingApi.generateLogo({
+        company_name: companyProfile.name,
+        industry: industryOverride || companyProfile.industry,
+        color_scheme: colors || 'professional',
+        logo_category: style || 'combination',
       });
       onResult(data);
       onClose();

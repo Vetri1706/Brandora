@@ -16,18 +16,18 @@ export default function GeneratePage() {
 
   const handleGenerateBranding = async (profile: CompanyProfile) => {
     setIsLoading(true);
-    toast.loading('Generating your brand identity...', { id: 'generating' });
+    toast.loading('Generating your logo...', { id: 'generating' });
 
     try {
-      const response = await brandingApi.generateBranding({
-        company_id: `company_${Date.now()}`,
-        company_profile: profile,
-        num_variations: 3,
-        focus: 'all',
+      const response = await brandingApi.generateLogo({
+        company_name: profile.name,
+        industry: profile.industry,
+        color_scheme: 'professional', // Default color scheme
+        logo_category: 'combination', // Default to combination style
       });
 
       toast.dismiss('generating');
-      toast.success('Brand identity generated successfully! 🎉');
+      toast.success('Logo generated successfully! 🎉');
       
       // Store result in localStorage and navigate to results
       localStorage.setItem('latest_branding', JSON.stringify(response.data));

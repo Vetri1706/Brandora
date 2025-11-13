@@ -141,11 +141,11 @@ export default function ResultsPage() {
       };
 
       // Make API call to regenerate using centralized API client
-      const { data } = await brandingApi.generateBranding({
-        company_id: Date.now().toString(),
-        company_profile: refinedProfile,
-        num_variations: 3,
-        focus: refineInputs.focusArea,
+      const { data } = await brandingApi.generateLogo({
+        company_name: refinedProfile.name,
+        industry: refinedProfile.industry,
+        color_scheme: 'professional',
+        logo_category: 'combination',
       });
       
       // Merge new results with existing ones based on focus
