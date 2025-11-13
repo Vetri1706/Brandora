@@ -1,9 +1,11 @@
-# 🎨 AI Logo Generator Frontend
+# 🎨 Brandora - AI Logo Generator
 
-Professional React/Next.js frontend for the AI Logo Generator system.
+**Professional AI-powered logo creation with industry intelligence**
+
+Brandora creates stunning, professional logos across 6 categories with intelligent industry-specific design patterns.
 
 ## 🚀 Live Demo
-- **Frontend**: https://[your-vercel-domain].vercel.app
+- **Frontend**: https://brandora.vercel.app
 - **Backend API**: https://brand-identity-generator-production.up.railway.app
 
 ## ✨ Features

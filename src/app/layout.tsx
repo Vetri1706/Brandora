@@ -6,9 +6,9 @@ import FuturisticCursor from '@/components/FuturisticCursor';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Brand Identity Generator - AI-Powered Branding',
-  description: 'Generate unique brand identities for tech companies using AI',
-  keywords: ['branding', 'ai', 'logo', 'identity', 'design', 'tech'],
+  title: 'Brandora - AI Logo Generator',
+  description: 'Professional AI-powered logo creation with industry intelligence across 6 categories',
+  keywords: ['brandora', 'logo', 'ai', 'generator', 'brand', 'design', 'professional'],
 };
 
 export default function RootLayout({

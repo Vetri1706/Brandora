@@ -1,5 +1,5 @@
 /**
- * API client for communicating with Backend
+ * API client for Brandora - AI Logo Generator
  */
 import axios from 'axios';
 
@@ -36,17 +36,21 @@ api.interceptors.response.use(
   }
 );
 
-export const brandingApi = {
-  // Health check
+export const logoApi = {
+  // Health check - ✅ MATCHES your Railway backend
   healthCheck: () => api.get('/health'),
   
-  // Generate branding
-  generateBranding: (data: any) =>
-    api.post('/api/v1/generate-branding', data),
+  // Generate logo - ✅ MATCHES your Railway backend  
+  generateLogo: (data: {
+    company_name: string;
+    industry?: string;
+    color_scheme?: string;
+    logo_category?: string;
+  }) => api.post('/generate-logo', data),
   
-  // Get company types
-  getCompanyTypes: () => api.get('/api/v1/company-types'),
-  
-  // Get example profile
-  getExampleProfile: () => api.get('/api/v1/example-company-profile'),
+  // Get API info - ✅ MATCHES your Railway backend
+  getApiInfo: () => api.get('/'),
 };
+
+// Legacy API for backward compatibility
+export const brandingApi = logoApi;

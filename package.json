@@ -1,7 +1,7 @@
 {
-  "name": "brand-identity-generator-frontend",
+  "name": "brandora",
   "version": "1.0.0",
-  "description": "Premium Next.js frontend for AI brand identity generation",
+  "description": "Brandora - AI-Powered Professional Logo Generator",
   "private": true,
   "scripts": {
     "dev": "next dev",
